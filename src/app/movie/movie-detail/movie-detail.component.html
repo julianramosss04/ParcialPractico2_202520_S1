@@ -1,24 +1,27 @@
-<div *ngIf="movie">
-  <h2>{{ movie.title }}</h2>
+<div class="detail-container" *ngIf="movie">
+  <div class="detail-content">
+    <h1 class="detail-title">{{ movie.title }}</h1>
 
-  <div>
-    <img
-      class="poster-detail-img"
-      [src]="movie.posterImageUrl"
-      alt="{{ movie.title }} poster"
-    />
-  </div>
+    <h3>Sinopsis:</h3>
+    <p>{{ movie.description }}</p>
 
-  <div>
-    <p><strong>Director:</strong> {{ movie.director }}</p>
-    <p><strong>Año de lanzamiento:</strong> {{ movie.releaseYear }}</p>
-    <p><strong>Calificación:</strong> {{ movie.rating }}</p>
-    <p><strong>Género:</strong> {{ movie.genre }}</p>
-    <p><strong>Sinopsis:</strong> {{ movie.description }}</p>
-  </div>
+    <div class="detail-info">
+      <p><strong>Director:</strong> {{ movie.director }}</p>
+      <p><strong>Año de lanzamiento:</strong> {{ movie.releaseYear }}</p>
+      <p><strong>Calificación:</strong> {{ movie.rating }}</p>
+      <p><strong>Género:</strong> {{ movie.genre }}</p>
+      <p><strong>Duración:</strong> {{ movie.duration }}</p>
+    </div>
 
-  <div>
     <h3>Reparto:</h3>
     <app-actor-list [actors]="movie.cast"></app-actor-list>
+
+    <button class="back-btn" (click)="goBack()">⬅ Regresar</button>
   </div>
+
+  <img
+    class="detail-poster"
+    [src]="movie.posterImageUrl"
+    alt="{{ movie.title }}"
+  />
 </div>

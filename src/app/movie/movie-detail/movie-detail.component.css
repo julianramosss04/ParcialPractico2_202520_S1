@@ -1,3 +1,38 @@
-img.poster-detail-img {
-  max-width: 300px;
+.detail-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background: #a8d8ff;
+  padding: 40px;
+}
+
+.detail-content {
+  max-width: 600px;
+}
+
+.detail-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.detail-info p {
+  margin: 5px 0;
+}
+
+.detail-poster {
+  width: 350px;
+  border-radius: 10px;
+}
+
+.back-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: white;
+  border: 1px solid black;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.back-btn:hover {
+  background: #eee;
 }
