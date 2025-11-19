@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Actor } from '../Actor';
 
 @Component({
@@ -7,7 +7,19 @@ import { Actor } from '../Actor';
   templateUrl: './actor-list.component.html',
   styleUrl: './actor-list.component.css',
 })
-export class ActorListComponent implements OnInit {
+export class ActorListComponent implements OnChanges {
   @Input() actors: Actor[] = [];
-  ngOnInit() {}
+  promedioPopularidad = 0;
+
+  ngOnChanges(): void {
+    this.calcularPromedio();
+  }
+
+  private calcularPromedio(): void {
+    if (this.actors && this.actors.length > 0) {
+      let suma = 0;
+      this.actors.forEach((a) => (suma += a.popularity));
+      this.promedioPopularidad = Number((suma / this.actors.length).toFixed(2));
+    }
+  }
 }

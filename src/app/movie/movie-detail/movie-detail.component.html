@@ -10,13 +10,13 @@
       <p><strong>Año de lanzamiento:</strong> {{ movie.releaseYear }}</p>
       <p><strong>Calificación:</strong> {{ movie.rating }}</p>
       <p><strong>Género:</strong> {{ movie.genre }}</p>
-      <p><strong>Duración:</strong> {{ movie.duration }}</p>
+      <p><strong>Duración aprox:</strong> {{ duracionLegible }}</p>
     </div>
 
     <h3>Reparto:</h3>
     <app-actor-list [actors]="movie.cast"></app-actor-list>
 
-    <button class="back-btn" (click)="goBack()">⬅ Regresar</button>
+    <button class="back-btn" (click)="goBack()">Regresar</button>
   </div>
 
   <img

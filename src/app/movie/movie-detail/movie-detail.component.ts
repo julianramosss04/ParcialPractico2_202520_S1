@@ -11,6 +11,7 @@ import { MovieService } from '../movie.service';
 })
 export class MovieDetailComponent implements OnInit {
   movie!: Movie;
+  duracionLegible = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -20,10 +21,16 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-
-    this.movieService.getMovieDetail(id).subscribe((movie) => {
-      this.movie = movie;
+    this.movieService.getMovieDetail(id).subscribe((detail) => {
+      this.movie = detail;
+      this.duracionLegible = this.convertirDuracion(detail.duration);
     });
+  }
+
+  private convertirDuracion(mins: number): string {
+    const horas = Math.floor(mins / 60);
+    const restantes = mins % 60;
+    return `${horas}H y ${restantes}m`;
   }
 
   goBack(): void {
